@@ -1,0 +1,80 @@
+
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100;
+  font-family: 'Oswald'
+}
+
+.top {
+  background-color: #FFF3B8;
+  height: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+  color: #E2CB5D;
+}
+
+.bottom {
+  background-color: #FFEC8E;
+  height: 600px;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameboard {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  border-style: solid;
+  height: 125px;
+  width: 123px;
+  border-color: #E2CB5D;
+}
+
+.box:nth-child(1) {
+  border-width: 0px 3px 3px 0px
+}
+
+.box:nth-child(2) {
+  border-width: 0px 3px 3px 3px
+}
+
+.box:nth-child(3) {
+  border-width: 0px 0px 3px 3px
+}
+
+.box:nth-child(4) {
+  border-width: 3px 3px 3px 0px
+}
+
+.box:nth-child(5) {
+  border-width: 3px 3px 3px 3px
+}
+
+.box:nth-child(6) {
+  border-width: 3px 0px 3px 3px
+}
+
+.box:nth-child(7) {
+  border-width: 3px 3px 0px 0px
+}
+
+.box:nth-child(8) {
+  border-width: 3px 3px 0px 3px
+}
+
+.box:nth-child(9) {
+  border-width: 3px 0px 0px 3px
+}
