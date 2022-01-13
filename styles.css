@@ -4,7 +4,8 @@ body {
   margin: 0;
   height: 100%;
   width: 100;
-  font-family: 'Oswald'
+  font-family: 'Oswald';
+  background-color: #FFEC8E;
 }
 
 .top {
@@ -30,7 +31,7 @@ body {
   height: 400px;
   width: 400px;
   display: flex;
-  align-content: flex-start;
+  align-content: center;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -41,7 +42,12 @@ body {
   height: 125px;
   width: 123px;
   border-color: #E2CB5D;
+  /* transition: .2s; */
 }
+
+/* .box:hover {
+  transform: scale(1,1);
+} */
 
 .box:nth-child(1) {
   border-width: 0px 3px 3px 0px
