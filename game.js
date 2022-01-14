@@ -1,10 +1,9 @@
 class Game {
   constructor() {
-    //two player instances
-    this.playerOne = new Player(1, "X");
-    this.playerTwo = new Player(2, "O");
-    //data for game board
+    this.playerOne = new Player(1, "🍄");
+    this.playerTwo = new Player(2, "🌱");
     this.playerOnesTurn = true;
+    this.whoStarts = 1;
     this.gameBoardSquares = {
       boxOne: 0,
       boxTwo: 0,
@@ -19,15 +18,10 @@ class Game {
 
     this.winner;
     this.ended = false;
-    // gameboards data for win conditions
-    // game is a draw
-    //reset gameboard to new games
-    // ???for in loop???
+    this.trophyEarned = 0;
   }
 
   changeTurns() {
-    //if player one just went, chane playerOnesTurn to false
-    //if player two just went, change playerOnesTurn to true
     if (this.playerOnesTurn) {
       this.playerOnesTurn = false;
     } else {
@@ -36,13 +30,6 @@ class Game {
   }
 
   pickASquare(chosenSquare) {
-    /*
-
-    if its players one turn if a box is clicked by player one, update this.gameBoardSquares
-    correlationg box to 1,
-
-    if its clicked by player two, update to 2
-    */
     if (this.playerOnesTurn && this.gameBoardSquares[chosenSquare] === 0) {
       this.gameBoardSquares[chosenSquare] = 1;
     }
@@ -51,7 +38,6 @@ class Game {
       this.gameBoardSquares[chosenSquare] = 2;
     }
 
-    // console.log(this.gameBoardSquares[chosenSquare])
     return this.gameBoardSquares[chosenSquare];
     displayIcon();
   }
@@ -196,23 +182,27 @@ class Game {
       boxEight: 0,
       boxNine: 0,
     };
-    this.playerOnesTurn = true;
+    this.alternateStartingPlayer();
     this.winner = 0;
     this.ended = false;
+    game.trophyEarned = 0;
   }
 
   recordWinner() {
-    //
     if (this.winner === 1 && !this.ended) {
       this.playerOne.wins.push(1);
     } else if (this.winner === 2 && !this.ended) {
       this.playerTwo.wins.push(1);
     }
   }
+
+  alternateStartingPlayer() {
+    if (this.whoStarts === 1) {
+      this.whoStarts = 2;
+      this.playerOnesTurn = false;
+    } else {
+      this.whoStarts = 1;
+      this.playerOnesTurn = true;
+    }
+  }
 }
-
-//>>> the number that is matching is the player that wins
-
-//     //else its a draw
-//   }
-// }
