@@ -16,7 +16,9 @@ class Game {
       boxEight: 0,
       boxNine: 0,
     };
+
     this.winner;
+    this.ended = false;
     // gameboards data for win conditions
     // game is a draw
     //reset gameboard to new games
@@ -33,7 +35,7 @@ class Game {
     }
   }
 
-  pickASquare(chosenSquare, existingSquare) {
+  pickASquare(chosenSquare) {
     /*
 
     if its players one turn if a box is clicked by player one, update this.gameBoardSquares
@@ -51,6 +53,7 @@ class Game {
 
     // console.log(this.gameBoardSquares[chosenSquare])
     return this.gameBoardSquares[chosenSquare];
+    displayIcon()
   }
 
   winningSolutions() {
@@ -60,13 +63,13 @@ class Game {
     // 1 4 7
     // 2
     //
-    var winningScenarioArray = [
-      {
-        boxOne: 1,
-        boxTwo: 1,
-        boxThree: 1,
-      },
-    ];
+    // var winningScenarioArray = [
+    //   {
+    //     boxOne: 1,
+    //     boxTwo: 1,
+    //     boxThree: 1,
+    //   },
+    // ];
 
     // var winningConditionOne = (this.gameBoardSquares.boxOne > 0 &&
     //   this.gameBoardSquares.boxOne === this.gameBoardSquares.boxTwo &&
@@ -85,7 +88,10 @@ class Game {
       this.gameBoardSquares.boxOne === this.gameBoardSquares.boxThree
     ) {
       this.winner = this.gameBoardSquares.boxOne;
+
       console.log(`Player ${this.winner} won!`);
+      this.recordWinner()
+      this.ended = true;
     }
     //if box one four seven match
     else if (
@@ -95,6 +101,8 @@ class Game {
     ) {
       this.winner = this.gameBoardSquares.boxOne;
       console.log(`Player ${this.winner} won!`);
+      this.recordWinner()
+      this.ended = true;
     }
     //if box seven eight nine match
     else if (
@@ -104,15 +112,19 @@ class Game {
     ) {
       this.winner = this.gameBoardSquares.boxSeven;
       console.log(`Player ${this.winner} won!`);
+      this.recordWinner()
+      this.ended = true;
     }
     //if box three six nine match
     else if (
-      this.gameBoardSquares.boxOne > 0 &&
-      this.gameBoardSquares.boxOne === this.gameBoardSquares.boxSeven &&
-      this.gameBoardSquares.boxOne === this.gameBoardSquares.boxFour
+      this.gameBoardSquares.boxThree > 0 &&
+      this.gameBoardSquares.boxThree === this.gameBoardSquares.boxSix &&
+      this.gameBoardSquares.boxThree === this.gameBoardSquares.boxNine
     ) {
-      this.winner = this.gameBoardSquares.boxOne;
+      this.winner = this.gameBoardSquares.boxThree;
       console.log(`Player ${this.winner} won!`);
+      this.recordWinner()
+      this.ended = true;
     }
     // if boxe two five eight match
     else if (
@@ -121,7 +133,9 @@ class Game {
       this.gameBoardSquares.boxTwo === this.gameBoardSquares.boxEight
     ) {
       this.winner = this.gameBoardSquares.boxTwo;
+      this.recordWinner()
       console.log(`Player ${this.winner} won!`);
+      this.ended = true;
     }
     //if box four five six match
     else if (
@@ -130,7 +144,9 @@ class Game {
       this.gameBoardSquares.boxFour === this.gameBoardSquares.boxSix
     ) {
       this.winner = this.gameBoardSquares.boxFour;
+      this.recordWinner()
       console.log(`Player ${this.winner} won!`);
+      this.ended = true;
     }
     //if box one five nine match
     else if (
@@ -139,15 +155,19 @@ class Game {
       this.gameBoardSquares.boxOne === this.gameBoardSquares.boxNine
     ) {
       this.winner = this.gameBoardSquares.boxOne;
+      this.recordWinner()
       console.log(`Player ${this.winner} won!`);
+      this.ended = true;
       //if box three five seven match
     } else if (
       this.gameBoardSquares.boxThree > 0 &&
       this.gameBoardSquares.boxThree === this.gameBoardSquares.boxSeven &&
-      this.gameBoardSquares.boxThree === this.gameBoardSquares.boxFIve
+      this.gameBoardSquares.boxThree === this.gameBoardSquares.boxFive
     ) {
-      this.winner = this.gameBoardSquares.boxOne;
+      this.winner = this.gameBoardSquares.boxThree;
+      this.recordWinner()
       console.log(`Player ${this.winner} won!`);
+      this.ended = true;
     } else if (
       this.gameBoardSquares.boxOne > 0 &&
       this.gameBoardSquares.boxTwo > 0 &&
@@ -160,9 +180,37 @@ class Game {
       this.gameBoardSquares.boxNine > 0
     ) {
       console.log(`Draw`);
+      this.ended = true;
+    }
+  }
+
+  reset() {
+    this.gameBoardSquares = {
+      boxOne: 0,
+      boxTwo: 0,
+      boxThree: 0,
+      boxFour: 0,
+      boxFive: 0,
+      boxSix: 0,
+      boxSeven: 0,
+      boxEight: 0,
+      boxNine: 0,
+    }
+    this.playerOnesTurn = true;
+    this.winner = 0
+    this.ended = false;
+  }
+
+  recordWinner() {
+//
+    if (this.winner === 1 && !this.ended) {
+      this.playerOne.wins.push(1)
+    } else if (this.winner === 2 && !this.ended) {
+      this.playerTwo.wins.push(1)
     }
   }
 }
+
 
 //>>> the number that is matching is the player that wins
 
