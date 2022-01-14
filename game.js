@@ -53,7 +53,7 @@ class Game {
 
     // console.log(this.gameBoardSquares[chosenSquare])
     return this.gameBoardSquares[chosenSquare];
-    displayIcon()
+    displayIcon();
   }
 
   winningSolutions() {
@@ -90,7 +90,7 @@ class Game {
       this.winner = this.gameBoardSquares.boxOne;
 
       console.log(`Player ${this.winner} won!`);
-      this.recordWinner()
+      this.recordWinner();
       this.ended = true;
     }
     //if box one four seven match
@@ -101,7 +101,7 @@ class Game {
     ) {
       this.winner = this.gameBoardSquares.boxOne;
       console.log(`Player ${this.winner} won!`);
-      this.recordWinner()
+      this.recordWinner();
       this.ended = true;
     }
     //if box seven eight nine match
@@ -112,7 +112,7 @@ class Game {
     ) {
       this.winner = this.gameBoardSquares.boxSeven;
       console.log(`Player ${this.winner} won!`);
-      this.recordWinner()
+      this.recordWinner();
       this.ended = true;
     }
     //if box three six nine match
@@ -123,7 +123,7 @@ class Game {
     ) {
       this.winner = this.gameBoardSquares.boxThree;
       console.log(`Player ${this.winner} won!`);
-      this.recordWinner()
+      this.recordWinner();
       this.ended = true;
     }
     // if boxe two five eight match
@@ -133,7 +133,7 @@ class Game {
       this.gameBoardSquares.boxTwo === this.gameBoardSquares.boxEight
     ) {
       this.winner = this.gameBoardSquares.boxTwo;
-      this.recordWinner()
+      this.recordWinner();
       console.log(`Player ${this.winner} won!`);
       this.ended = true;
     }
@@ -144,7 +144,7 @@ class Game {
       this.gameBoardSquares.boxFour === this.gameBoardSquares.boxSix
     ) {
       this.winner = this.gameBoardSquares.boxFour;
-      this.recordWinner()
+      this.recordWinner();
       console.log(`Player ${this.winner} won!`);
       this.ended = true;
     }
@@ -155,7 +155,7 @@ class Game {
       this.gameBoardSquares.boxOne === this.gameBoardSquares.boxNine
     ) {
       this.winner = this.gameBoardSquares.boxOne;
-      this.recordWinner()
+      this.recordWinner();
       console.log(`Player ${this.winner} won!`);
       this.ended = true;
       //if box three five seven match
@@ -165,7 +165,7 @@ class Game {
       this.gameBoardSquares.boxThree === this.gameBoardSquares.boxFive
     ) {
       this.winner = this.gameBoardSquares.boxThree;
-      this.recordWinner()
+      this.recordWinner();
       console.log(`Player ${this.winner} won!`);
       this.ended = true;
     } else if (
@@ -195,22 +195,21 @@ class Game {
       boxSeven: 0,
       boxEight: 0,
       boxNine: 0,
-    }
+    };
     this.playerOnesTurn = true;
-    this.winner = 0
+    this.winner = 0;
     this.ended = false;
   }
 
   recordWinner() {
-//
+    //
     if (this.winner === 1 && !this.ended) {
-      this.playerOne.wins.push(1)
+      this.playerOne.wins.push(1);
     } else if (this.winner === 2 && !this.ended) {
-      this.playerTwo.wins.push(1)
+      this.playerTwo.wins.push(1);
     }
   }
 }
-
 
 //>>> the number that is matching is the player that wins
 
