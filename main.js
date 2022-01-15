@@ -14,11 +14,18 @@ var game = new Game();
 function chosenSquare() {
   for (var i = 0; i < boxes.length; i++) {
     if (event.target.id === boxes[i].id) {
-      game.pickASquare(event.target.id)
-      displayIcon(boxes[i])
+      game.pickASquare(event.target.id);
+      displayIcon(boxes[i]);
     }
   }
-  game.winningSolutions();
+  game.winningSolutions('boxOne', 'boxTwo', 'boxThree');
+  game.winningSolutions('boxFour', 'boxFive', 'boxSix');
+  game.winningSolutions('boxSeven', 'boxEight', 'boxNine');
+  game.winningSolutions('boxOne', 'boxFour', 'boxSeven');
+  game.winningSolutions('boxTwo', 'boxFive', 'boxEight');
+  game.winningSolutions('boxThree', 'boxSix', 'boxNine');
+  game.winningSolutions('boxOne', 'boxFive', 'boxNine');
+  game.winningSolutions('boxThree', 'boxFive', 'boxSeven')
   game.changeTurns();
   //   whoseTurn();
   whoseTurn();
@@ -112,52 +119,49 @@ function displayWins() {
 //   }
 // }
 
-
-
-
 // if (event.target.id === "boxOne" && boxOne.innerText === "") {
-  //   game.pickASquare("boxOne");
-  //   displayIcon(boxOne);
-  //   game.changeTurns();
-  //   whoseTurn();
-  // } else if (event.target.id === "boxTwo" && boxTwo.innerText === "") {
-    //   game.pickASquare("boxTwo");
-    //   displayIcon(boxTwo);
-    //   game.changeTurns();
-    //   whoseTurn();
-    // } else if (event.target.id === "boxThree" && boxThree.innerText === "") {
-      //   game.pickASquare("boxThree");
-      //   displayIcon(boxThree);
-      //   game.changeTurns();
-      //   whoseTurn();
-      // } else if (event.target.id === "boxFour" && boxFour.innerText === "") {
-        //   game.pickASquare("boxFour");
-        //   displayIcon(boxFour);
-        //   game.changeTurns();
-        //   whoseTurn();
-        // } else if (event.target.id === "boxFive" && boxFive.innerText === "") {
-          //   game.pickASquare("boxFive");
-          //   displayIcon(boxFive);
-          //   game.changeTurns();
-          //   whoseTurn();
-          // } else if (event.target.id === "boxSix" && boxSix.innerText === "") {
-            //   game.pickASquare("boxSix");
-            //   displayIcon(boxSix);
-            //   game.changeTurns();
-            //   whoseTurn();
-            // } else if (event.target.id === "boxSeven" && boxSeven.innerText === "") {
-              //   game.pickASquare("boxSeven");
-              //   displayIcon(boxSeven);
-              //   game.changeTurns();
-              //   whoseTurn();
-              // } else if (event.target.id === "boxEight" && boxEight.innerText === "") {
-                //   game.pickASquare("boxEight");
-                //   displayIcon(boxEight);
-                //   game.changeTurns();
-                //   whoseTurn();
-                // } else if (event.target.id === "boxNine" && boxNine.innerText === "") {
-                  //   game.pickASquare("boxNine");
-                  //   displayIcon(boxNine);
-                  //   game.changeTurns();
-                  //   whoseTurn();
-                  // }
+//   game.pickASquare("boxOne");
+//   displayIcon(boxOne);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxTwo" && boxTwo.innerText === "") {
+//   game.pickASquare("boxTwo");
+//   displayIcon(boxTwo);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxThree" && boxThree.innerText === "") {
+//   game.pickASquare("boxThree");
+//   displayIcon(boxThree);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxFour" && boxFour.innerText === "") {
+//   game.pickASquare("boxFour");
+//   displayIcon(boxFour);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxFive" && boxFive.innerText === "") {
+//   game.pickASquare("boxFive");
+//   displayIcon(boxFive);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxSix" && boxSix.innerText === "") {
+//   game.pickASquare("boxSix");
+//   displayIcon(boxSix);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxSeven" && boxSeven.innerText === "") {
+//   game.pickASquare("boxSeven");
+//   displayIcon(boxSeven);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxEight" && boxEight.innerText === "") {
+//   game.pickASquare("boxEight");
+//   displayIcon(boxEight);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxNine" && boxNine.innerText === "") {
+//   game.pickASquare("boxNine");
+//   displayIcon(boxNine);
+//   game.changeTurns();
+//   whoseTurn();
+// }
