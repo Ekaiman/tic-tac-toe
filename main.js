@@ -5,7 +5,6 @@ var playerTwo = document.getElementById("playerTwo");
 var oneWins = document.getElementById("oneWins");
 var twoWins = document.getElementById("twoWins");
 var whoseTurnText = document.getElementById("whoseTurn");
-// var boxOne = document.getElementById('boxOne')
 
 bottom.addEventListener("click", chosenSquare);
 
@@ -26,6 +25,7 @@ function chosenSquare() {
   game.winningSolutions('boxThree', 'boxSix', 'boxNine');
   game.winningSolutions('boxOne', 'boxFive', 'boxNine');
   game.winningSolutions('boxThree', 'boxFive', 'boxSeven')
+  game.draw()
   game.changeTurns();
   //   whoseTurn();
   whoseTurn();
