@@ -17,6 +17,7 @@ function chosenSquare() {
       displayIcon(boxes[i]);
     }
   }
+
   game.winningSolutions('boxOne', 'boxTwo', 'boxThree');
   game.winningSolutions('boxFour', 'boxFive', 'boxSix');
   game.winningSolutions('boxSeven', 'boxEight', 'boxNine');
@@ -27,12 +28,9 @@ function chosenSquare() {
   game.winningSolutions('boxThree', 'boxFive', 'boxSeven')
   game.draw()
   game.changeTurns();
-  //   whoseTurn();
   whoseTurn();
   displayWins();
   setTimeout("clearBoxes()", 5000);
-
-  //make all boxes unclickable after someone winningS
 }
 
 function displayIcon(box) {
@@ -43,8 +41,6 @@ function displayIcon(box) {
   }
 }
 
-// grid should clear when a player winnings
-// or grid should clear when theres a draw
 function clearBoxes() {
   if (game.ended) {
     for (var i = 0; i < boxes.length; i++) {
@@ -57,17 +53,9 @@ function clearBoxes() {
 
 function whoseTurn() {
   if (game.playerOnesTurn && !game.ended) {
-    // playerOne.style.fontSize = "150%";
-    // playerTwo.style.fontSize = "100%";
     whoseTurnText.innerText = "Player 1's Turn";
   } else if (!game.playerOnesTurn && !game.ended) {
-    // playerTwo.style.fontSize = "150%";
-    // playerOne.style.fontSize = "100%";
     whoseTurnText.innerText = "Player 2's Turn";
-    // } else {
-    //   playerTwo.style.fontSize = "100%";
-    //   playerOne.style.fontSize = "100%";
-    // }
   }
 }
 
