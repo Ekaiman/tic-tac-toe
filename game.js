@@ -56,31 +56,49 @@ class Game {
     }
   }
 
-  draw() {
-    var boxesArray = [
-      "boxOne",
-      "boxTwo",
-      "boxThree",
-      "boxFour",
-      "boxFive",
-      "boxSix",
-      "boxSeven",
-      "boxEight",
-      "boxNine",
-    ];
+  // draw() {
+  //   var boxesArray = [
+  //     "boxOne",
+  //     "boxTwo",
+  //     "boxThree",
+  //     "boxFour",
+  //     "boxFive",
+  //     "boxSix",
+  //     "boxSeven",
+  //     "boxEight",
+  //     "boxNine",
+  //   ];
+  //
+  //   var usedBoxes = [];
+  //   for (var i = 0; i < boxesArray.length; i++) {
+  //     if (this.gameBoardSquares[boxesArray[i]] > 0) {
+  //       usedBoxes.push(boxesArray[i])
+  //     }
+  //   }
+  //   if (usedBoxes.length === 9) {
+  //     console.log(`Draw`);
+  //     this.ended = true;
+  //
+  //   }
+  // }
 
-    var usedBoxes = [];
-    for (var i = 0; i < boxesArray.length; i++) {
-      if (this.gameBoardSquares[boxesArray[i]] > 0) {
-        usedBoxes.push(boxesArray[i])
-      }
-    }
-    if (usedBoxes.length === 9) {
+  draw() {
+    if (
+    this.gameBoardSquares.boxOne > 0 &&
+      this.gameBoardSquares.boxTwo > 0 &&
+      this.gameBoardSquares.boxThree > 0 &&
+      this.gameBoardSquares.boxFour > 0 &&
+      this.gameBoardSquares.boxFive > 0 &&
+      this.gameBoardSquares.boxSix > 0 &&
+      this.gameBoardSquares.boxSeven > 0 &&
+      this.gameBoardSquares.boxEight > 0 &&
+      this.gameBoardSquares.boxNine > 0
+    ) {
       console.log(`Draw`);
       this.ended = true;
-
     }
   }
+  
 
   reset() {
     this.gameBoardSquares = {
