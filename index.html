@@ -7,22 +7,31 @@
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
-    <header class="top">
-      <p>Player 1</p>
-      <p>Player 2</p>
-    </header>
-    <section class="bottom">
+    <section class="left">
+      <p id="playerOne">Player 1 </p>
+      <div>
+        <p id="oneWins"></p>
+      </div>
+    </section>
+    <section class="middle" id="bottom">
+      <h1 id="whoseTurn">Player 1's Turn</h1>
       <section class="gameboard">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" id="boxOne"></div>
+        <div class="box" id="boxTwo"></div>
+        <div class="box" id="boxThree"></div>
+        <div class="box" id="boxFour"></div>
+        <div class="box" id="boxFive"></div>
+        <div class="box" id="boxSix"></div>
+        <div class="box" id="boxSeven"></div>
+        <div class="box" id="boxEight"></div>
+        <div class="box" id="boxNine"></div>
       </section>
+    </section>
+    <section class="right">
+      <p id="playerTwo">Player 2</p>
+      <div>
+        <p id="twoWins"></p>
+      </div>
     </section>
     <script type="text/javascript" src="player.js"></script>
     <script type="text/javascript" src="game.js"></script>
