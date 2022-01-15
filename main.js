@@ -5,7 +5,6 @@ var playerTwo = document.getElementById("playerTwo");
 var oneWins = document.getElementById("oneWins");
 var twoWins = document.getElementById("twoWins");
 var whoseTurnText = document.getElementById("whoseTurn");
-// var boxOne = document.getElementById('boxOne')
 
 bottom.addEventListener("click", chosenSquare);
 
@@ -14,18 +13,24 @@ var game = new Game();
 function chosenSquare() {
   for (var i = 0; i < boxes.length; i++) {
     if (event.target.id === boxes[i].id) {
-      game.pickASquare(event.target.id)
-      displayIcon(boxes[i])
+      game.pickASquare(event.target.id);
+      displayIcon(boxes[i]);
     }
   }
-  game.winningSolutions();
+
+  game.winningSolutions('boxOne', 'boxTwo', 'boxThree');
+  game.winningSolutions('boxFour', 'boxFive', 'boxSix');
+  game.winningSolutions('boxSeven', 'boxEight', 'boxNine');
+  game.winningSolutions('boxOne', 'boxFour', 'boxSeven');
+  game.winningSolutions('boxTwo', 'boxFive', 'boxEight');
+  game.winningSolutions('boxThree', 'boxSix', 'boxNine');
+  game.winningSolutions('boxOne', 'boxFive', 'boxNine');
+  game.winningSolutions('boxThree', 'boxFive', 'boxSeven')
+  game.draw()
   game.changeTurns();
-  //   whoseTurn();
   whoseTurn();
   displayWins();
   setTimeout("clearBoxes()", 5000);
-
-  //make all boxes unclickable after someone winningS
 }
 
 function displayIcon(box) {
@@ -36,8 +41,6 @@ function displayIcon(box) {
   }
 }
 
-// grid should clear when a player winnings
-// or grid should clear when theres a draw
 function clearBoxes() {
   if (game.ended) {
     for (var i = 0; i < boxes.length; i++) {
@@ -50,17 +53,9 @@ function clearBoxes() {
 
 function whoseTurn() {
   if (game.playerOnesTurn && !game.ended) {
-    // playerOne.style.fontSize = "150%";
-    // playerTwo.style.fontSize = "100%";
     whoseTurnText.innerText = "Player 1's Turn";
   } else if (!game.playerOnesTurn && !game.ended) {
-    // playerTwo.style.fontSize = "150%";
-    // playerOne.style.fontSize = "100%";
     whoseTurnText.innerText = "Player 2's Turn";
-    // } else {
-    //   playerTwo.style.fontSize = "100%";
-    //   playerOne.style.fontSize = "100%";
-    // }
   }
 }
 
@@ -112,52 +107,49 @@ function displayWins() {
 //   }
 // }
 
-
-
-
 // if (event.target.id === "boxOne" && boxOne.innerText === "") {
-  //   game.pickASquare("boxOne");
-  //   displayIcon(boxOne);
-  //   game.changeTurns();
-  //   whoseTurn();
-  // } else if (event.target.id === "boxTwo" && boxTwo.innerText === "") {
-    //   game.pickASquare("boxTwo");
-    //   displayIcon(boxTwo);
-    //   game.changeTurns();
-    //   whoseTurn();
-    // } else if (event.target.id === "boxThree" && boxThree.innerText === "") {
-      //   game.pickASquare("boxThree");
-      //   displayIcon(boxThree);
-      //   game.changeTurns();
-      //   whoseTurn();
-      // } else if (event.target.id === "boxFour" && boxFour.innerText === "") {
-        //   game.pickASquare("boxFour");
-        //   displayIcon(boxFour);
-        //   game.changeTurns();
-        //   whoseTurn();
-        // } else if (event.target.id === "boxFive" && boxFive.innerText === "") {
-          //   game.pickASquare("boxFive");
-          //   displayIcon(boxFive);
-          //   game.changeTurns();
-          //   whoseTurn();
-          // } else if (event.target.id === "boxSix" && boxSix.innerText === "") {
-            //   game.pickASquare("boxSix");
-            //   displayIcon(boxSix);
-            //   game.changeTurns();
-            //   whoseTurn();
-            // } else if (event.target.id === "boxSeven" && boxSeven.innerText === "") {
-              //   game.pickASquare("boxSeven");
-              //   displayIcon(boxSeven);
-              //   game.changeTurns();
-              //   whoseTurn();
-              // } else if (event.target.id === "boxEight" && boxEight.innerText === "") {
-                //   game.pickASquare("boxEight");
-                //   displayIcon(boxEight);
-                //   game.changeTurns();
-                //   whoseTurn();
-                // } else if (event.target.id === "boxNine" && boxNine.innerText === "") {
-                  //   game.pickASquare("boxNine");
-                  //   displayIcon(boxNine);
-                  //   game.changeTurns();
-                  //   whoseTurn();
-                  // }
+//   game.pickASquare("boxOne");
+//   displayIcon(boxOne);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxTwo" && boxTwo.innerText === "") {
+//   game.pickASquare("boxTwo");
+//   displayIcon(boxTwo);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxThree" && boxThree.innerText === "") {
+//   game.pickASquare("boxThree");
+//   displayIcon(boxThree);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxFour" && boxFour.innerText === "") {
+//   game.pickASquare("boxFour");
+//   displayIcon(boxFour);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxFive" && boxFive.innerText === "") {
+//   game.pickASquare("boxFive");
+//   displayIcon(boxFive);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxSix" && boxSix.innerText === "") {
+//   game.pickASquare("boxSix");
+//   displayIcon(boxSix);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxSeven" && boxSeven.innerText === "") {
+//   game.pickASquare("boxSeven");
+//   displayIcon(boxSeven);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxEight" && boxEight.innerText === "") {
+//   game.pickASquare("boxEight");
+//   displayIcon(boxEight);
+//   game.changeTurns();
+//   whoseTurn();
+// } else if (event.target.id === "boxNine" && boxNine.innerText === "") {
+//   game.pickASquare("boxNine");
+//   displayIcon(boxNine);
+//   game.changeTurns();
+//   whoseTurn();
+// }
