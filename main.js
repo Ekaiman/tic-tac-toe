@@ -6,23 +6,23 @@ var oneWins = document.getElementById("oneWins");
 var twoWins = document.getElementById("twoWins");
 var whoseTurnText = document.getElementById("whoseTurn");
 
-bottom.addEventListener("click", chosenSquare);
+bottom.addEventListener("click", choseSquare);
 
 var game = new Game();
 
 //rename start game
-function chosenSquare() {
+function choseSquare() {
   for (var i = 0; i < boxes.length; i++) {
     if (event.target.id === boxes[i].id && boxes[i].innerText === '') {
       game.pickASquare(event.target.id);
       displayIcon(boxes[i]);
     }
   }
-  // put gmae logic in property
-  game.winningSolutions();
-  game.draw()
+
+  game.checkForWinner();
+  game.checkForDraw()
   game.changeTurns();
-  whoseTurn();
+  displayWhoseTurn();
   displayWins();
   setTimeout("clearBoxes()", 5000);
 }
@@ -44,14 +44,14 @@ function clearBoxes() {
     for (var i = 0; i < boxes.length; i++) {
       boxes[i].innerText = "";
     }
-    game.reset();
-    whoseTurn();
+    game.resetBoard();
+    displayWhoseTurn();
   }
 }
 
 //displayWhosETurn
 //pass in player
-function whoseTurn() {
+function displayWhoseTurn() {
   if (game.playerOnesTurn && !game.ended) {
     whoseTurnText.innerText = "Player 1's Turn";
   } else if (!game.playerOnesTurn && !game.ended) {

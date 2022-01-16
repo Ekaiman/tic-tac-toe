@@ -29,9 +29,6 @@ class Game {
     this.winner;
     this.ended = false;
     this.trophyEarned = 0;
-    //this.winconditions {
-    // 1:
-    // }
   }
 
   changeTurns(event) {
@@ -45,19 +42,17 @@ class Game {
   pickASquare(chosenSquare) {
     if (this.playerOnesTurn && this.gameBoardSquares[chosenSquare] === 0) {
       this.gameBoardSquares[chosenSquare] = 1;
-      // this.winningSolutions()
     }
 
     if (!this.playerOnesTurn && this.gameBoardSquares[chosenSquare] === 0) {
       this.gameBoardSquares[chosenSquare] = 2;
-      // this.winningSolutions()
     }
+
     return this.gameBoardSquares[chosenSquare];
-    displayIcon();
+
   }
 
-  //rename check for winner
-  winningSolutions() {
+  checkForWinner() {
     for (var i = 0; i < this.winningConditions.length; i++) {
       if (
         this.gameBoardSquares[this.winningConditions[i][0]] > 0 &&
@@ -76,7 +71,7 @@ class Game {
   }
 
   // check for draw
-  draw() {
+  checkForDraw() {
     if (
       this.gameBoardSquares.boxOne > 0 &&
       this.gameBoardSquares.boxTwo > 0 &&
@@ -95,7 +90,7 @@ class Game {
 
   //reset board?/beter naming?
 
-  reset() {
+  resetBoard() {
     this.gameBoardSquares = {
       boxOne: 0,
       boxTwo: 0,
