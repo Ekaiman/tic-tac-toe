@@ -10,22 +10,16 @@ bottom.addEventListener("click", chosenSquare);
 
 var game = new Game();
 
+//rename start game
 function chosenSquare() {
   for (var i = 0; i < boxes.length; i++) {
-    if (event.target.id === boxes[i].id) {
+    if (event.target.id === boxes[i].id && boxes[i].innerText === '') {
       game.pickASquare(event.target.id);
       displayIcon(boxes[i]);
     }
   }
-
-  game.winningSolutions('boxOne', 'boxTwo', 'boxThree');
-  game.winningSolutions('boxFour', 'boxFive', 'boxSix');
-  game.winningSolutions('boxSeven', 'boxEight', 'boxNine');
-  game.winningSolutions('boxOne', 'boxFour', 'boxSeven');
-  game.winningSolutions('boxTwo', 'boxFive', 'boxEight');
-  game.winningSolutions('boxThree', 'boxSix', 'boxNine');
-  game.winningSolutions('boxOne', 'boxFive', 'boxNine');
-  game.winningSolutions('boxThree', 'boxFive', 'boxSeven')
+  // put gmae logic in property
+  game.winningSolutions();
   game.draw()
   game.changeTurns();
   whoseTurn();
@@ -33,6 +27,10 @@ function chosenSquare() {
   setTimeout("clearBoxes()", 5000);
 }
 
+//make this interact with gameboardsquares
+//if gameboardsquares is one, show player one displayIcon
+//if game board squares is two, show player two icson
+//if === 0 show nothing = ''
 function displayIcon(box) {
   if (game.playerOnesTurn && !game.ended && box.innerText === "") {
     box.innerText = game.playerOne.token;
@@ -51,6 +49,8 @@ function clearBoxes() {
   }
 }
 
+//displayWhosETurn
+//pass in player
 function whoseTurn() {
   if (game.playerOnesTurn && !game.ended) {
     whoseTurnText.innerText = "Player 1's Turn";
@@ -72,84 +72,3 @@ function displayWins() {
     whoseTurnText.innerText = "Draw!";
   }
 }
-
-// function disableClick() {
-//   boxes.disabled = true;
-// }
-
-//chosenSquare other thoughts
-//>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<
-//only should happen if that chosen box is 0
-// for (var i = 0; i < boxes.length; i++) {
-//   if (boxes[i].id == event.target.id) {
-//     game.pickASquare('boxOne')
-//     displayIcon(boxOne)
-//     game.changeTurns()
-//   }
-// }
-//   var click = event.target.id
-//   console.log(click)
-// if ( game.gameBoardSquares[click]) {
-//   console.log('hi')
-//   console.log(game.gameBoardSquares[event.target.id])
-//   game.pickASquare('boxOne')
-//   displayIcon(boxOne)
-//   game.changeTurns()
-// }
-//   var thisBox = [boxOne, boxTwo, boxThree]
-//   for (var i = 0; i < thisBox.length; i++){
-//
-//     // debugger
-//     if (event.target.id === `${thisBox[i]}` && thisBox[i].innerText === '') {
-//       game.pickASquare(`${thisBox[i]}`);
-//       displayIcon(thisBox[i]);
-//       game.changeTurns();
-//   }
-// }
-
-// if (event.target.id === "boxOne" && boxOne.innerText === "") {
-//   game.pickASquare("boxOne");
-//   displayIcon(boxOne);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxTwo" && boxTwo.innerText === "") {
-//   game.pickASquare("boxTwo");
-//   displayIcon(boxTwo);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxThree" && boxThree.innerText === "") {
-//   game.pickASquare("boxThree");
-//   displayIcon(boxThree);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxFour" && boxFour.innerText === "") {
-//   game.pickASquare("boxFour");
-//   displayIcon(boxFour);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxFive" && boxFive.innerText === "") {
-//   game.pickASquare("boxFive");
-//   displayIcon(boxFive);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxSix" && boxSix.innerText === "") {
-//   game.pickASquare("boxSix");
-//   displayIcon(boxSix);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxSeven" && boxSeven.innerText === "") {
-//   game.pickASquare("boxSeven");
-//   displayIcon(boxSeven);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxEight" && boxEight.innerText === "") {
-//   game.pickASquare("boxEight");
-//   displayIcon(boxEight);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxNine" && boxNine.innerText === "") {
-//   game.pickASquare("boxNine");
-//   displayIcon(boxNine);
-//   game.changeTurns();
-//   whoseTurn();
-// }
