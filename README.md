@@ -22,6 +22,7 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 - The board will automatically refresh and switch which player begins the next round.
 
 ## Future Additions
+- Create an option to play against a computer.
 - Allow users to pick their token from a drop down menu.
 - Add music to browser.
 
