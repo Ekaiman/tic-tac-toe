@@ -1,10 +1,10 @@
-var bottom = document.getElementById("bottom");
+var gameboard = document.getElementById("gameboard");
 var boxes = document.querySelectorAll(".box");
 var oneWins = document.getElementById("oneWins");
 var twoWins = document.getElementById("twoWins");
 var whoseTurnText = document.getElementById("whoseTurn");
 
-bottom.addEventListener("click", choseSquare);
+gameboard.addEventListener("click", choseSquare);
 
 var game = new Game();
 
