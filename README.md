@@ -2,9 +2,9 @@
 
 This project allows users to play tic tac toe with a friend sitting nearby. The program will automatically switch turns between plays, and asses for a win or a draw. Once the game has ended, after a few moments the board will refresh and it will record who one that game.
 
-![Gif 1](http://www.giphy.com/gifs/wk6xnQmbXmplJRDKGN)
+![Gif 1](https://media.giphy.com/media/wk6xnQmbXmplJRDKGN/giphy.gif)
 
-![Gif 2](http://www.giphy.com/gifs/rZaQItzaC8LQYBIPCi)
+![Gif 2](https://media.giphy.com/media/rZaQItzaC8LQYBIPCi/giphy.gif)
 
 ## Contributors
 - [Emili Kaiman](https://github.com/Ekaiman)
