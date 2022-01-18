@@ -10,7 +10,7 @@ body {
 
 .right,
 .left {
-  color: #E2CB5D;
+  color: #6E84B0;
   background-color: #FFF3B8;
   height: 100vh;;
   width: 20%;
@@ -31,7 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   justify-content: space-evenly;
-  color: #E2CB5D;
+  color: #6E84B0;
   font-size: 30px;
 }
 
@@ -48,7 +48,7 @@ body {
   border-style: solid;
   height: 125px;
   width: 123px;
-  border-color: #E2CB5D;
+  border-color: #6E84B0;
   display: flex;
   justify-content: center;
   align-items: center;
