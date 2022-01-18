@@ -1,7 +1,5 @@
 var bottom = document.getElementById("bottom");
 var boxes = document.querySelectorAll(".box");
-var playerOne = document.getElementById("playerOne");
-var playerTwo = document.getElementById("playerTwo");
 var oneWins = document.getElementById("oneWins");
 var twoWins = document.getElementById("twoWins");
 var whoseTurnText = document.getElementById("whoseTurn");
@@ -10,27 +8,21 @@ bottom.addEventListener("click", choseSquare);
 
 var game = new Game();
 
-//rename start game
 function choseSquare() {
   for (var i = 0; i < boxes.length; i++) {
-    if (event.target.id === boxes[i].id && boxes[i].innerText === '') {
+    if (event.target.id === boxes[i].id && boxes[i].innerText === "") {
       game.pickASquare(event.target.id);
       displayIcon(boxes[i]);
+      game.changeTurns();
     }
   }
-
   game.checkForWinner();
-  game.checkForDraw()
-  game.changeTurns();
+  game.checkForDraw();
   displayWhoseTurn();
   displayWins();
   setTimeout("clearBoxes()", 5000);
 }
 
-//make this interact with gameboardsquares
-//if gameboardsquares is one, show player one displayIcon
-//if game board squares is two, show player two icson
-//if === 0 show nothing = ''
 function displayIcon(box) {
   if (game.playerOnesTurn && !game.ended && box.innerText === "") {
     box.innerText = game.playerOne.token;
@@ -49,8 +41,6 @@ function clearBoxes() {
   }
 }
 
-//displayWhosETurn
-//pass in player
 function displayWhoseTurn() {
   if (game.playerOnesTurn && !game.ended) {
     whoseTurnText.innerText = "Player 1's Turn";
@@ -60,15 +50,15 @@ function displayWhoseTurn() {
 }
 
 function displayWins() {
-  if (game.winner === 1 && game.trophyEarned === 0) {
-    oneWins.innerText += "🏆";
+  if (game.winner === 1) {
+    var playerOneWins = game.playerOne.wins.length;
+    oneWins.innerText = `Wins: ${playerOneWins}`;
     whoseTurnText.innerText = "Victory for Player One!";
-    game.trophyEarned++;
-  } else if (game.winner === 2 && game.trophyEarned === 0) {
-    twoWins.innerText += "🏆";
+  } else if (game.winner === 2) {
+    var playerTwoWins = game.playerOne.wins.length;
+    twoWins.innerText = `Wins: ${playerTwoWins}`;
     whoseTurnText.innerText = "Victory for Player Two!";
-    game.trophyEarned++;
-  } else if (game.ended && game.trophyEarned === 0) {
+  } else if (game.ended) {
     whoseTurnText.innerText = "Draw!";
   }
 }

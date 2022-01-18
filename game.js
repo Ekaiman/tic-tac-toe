@@ -16,19 +16,19 @@ class Game {
       boxNine: 0,
     };
 
-    this.winningConditions = [["boxOne", "boxTwo", "boxThree"],
-    ['boxFour', 'boxFive', 'boxSix'],
-    ['boxSeven', 'boxEight', 'boxNine'],
-    ['boxOne', 'boxFour', 'boxSeven'],
-    ['boxTwo', 'boxFive', 'boxEight'],
-    ['boxThree', 'boxSix', 'boxNine'],
-    ['boxOne', 'boxFive', 'boxNine'],
-    ['boxThree', 'boxFive', 'boxSeven']
-  ];
+    this.winningConditions = [
+      ["boxOne", "boxTwo", "boxThree"],
+      ["boxFour", "boxFive", "boxSix"],
+      ["boxSeven", "boxEight", "boxNine"],
+      ["boxOne", "boxFour", "boxSeven"],
+      ["boxTwo", "boxFive", "boxEight"],
+      ["boxThree", "boxSix", "boxNine"],
+      ["boxOne", "boxFive", "boxNine"],
+      ["boxThree", "boxFive", "boxSeven"],
+    ];
 
     this.winner;
     this.ended = false;
-    this.trophyEarned = 0;
   }
 
   changeTurns(event) {
@@ -42,14 +42,9 @@ class Game {
   pickASquare(chosenSquare) {
     if (this.playerOnesTurn && this.gameBoardSquares[chosenSquare] === 0) {
       this.gameBoardSquares[chosenSquare] = 1;
-    }
-
-    if (!this.playerOnesTurn && this.gameBoardSquares[chosenSquare] === 0) {
+    } else if (!this.playerOnesTurn && this.gameBoardSquares[chosenSquare] === 0) {
       this.gameBoardSquares[chosenSquare] = 2;
     }
-
-    return this.gameBoardSquares[chosenSquare];
-
   }
 
   checkForWinner() {
@@ -62,15 +57,13 @@ class Game {
           this.gameBoardSquares[this.winningConditions[i][2]]
       ) {
         this.winner = this.gameBoardSquares[this.winningConditions[i][0]];
-        console.log(`Player ${this.winner} won!`);
         this.recordWinner();
         this.ended = true;
-        return
+        return;
       }
     }
   }
 
-  // check for draw
   checkForDraw() {
     if (
       this.gameBoardSquares.boxOne > 0 &&
@@ -83,12 +76,10 @@ class Game {
       this.gameBoardSquares.boxEight > 0 &&
       this.gameBoardSquares.boxNine > 0
     ) {
-      console.log(`Draw`);
       this.ended = true;
     }
   }
 
-  //reset board?/beter naming?
 
   resetBoard() {
     this.gameBoardSquares = {
@@ -105,14 +96,13 @@ class Game {
     this.alternateStartingPlayer();
     this.winner = 0;
     this.ended = false;
-    game.trophyEarned = 0;
   }
 
   recordWinner() {
     if (this.winner === 1 && !this.ended) {
-      this.playerOne.wins.push(1);
+      this.playerOne.wins.push(this.gameBoardSquares);
     } else if (this.winner === 2 && !this.ended) {
-      this.playerTwo.wins.push(1);
+      this.playerTwo.wins.push(this.gameBoardSquares);
     }
   }
 

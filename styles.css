@@ -8,16 +8,6 @@ body {
   display: flex;
 }
 
-/* .top {
-  background-color: #FFF3B8;
-  height: 150px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 30px;
-  color: #E2CB5D;
-} */
-
 .right,
 .left {
   color: #E2CB5D;
