@@ -55,7 +55,7 @@ function displayWins() {
     oneWins.innerText = `Wins: ${playerOneWins}`;
     whoseTurnText.innerText = "Victory for Player One!";
   } else if (game.winner === 2) {
-    var playerTwoWins = game.playerOne.wins.length;
+    var playerTwoWins = game.playerTwo.wins.length;
     twoWins.innerText = `Wins: ${playerTwoWins}`;
     whoseTurnText.innerText = "Victory for Player Two!";
   } else if (game.ended) {
