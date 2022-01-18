@@ -1,34 +1,24 @@
 var bottom = document.getElementById("bottom");
 var boxes = document.querySelectorAll(".box");
-var playerOne = document.getElementById("playerOne");
-var playerTwo = document.getElementById("playerTwo");
 var oneWins = document.getElementById("oneWins");
 var twoWins = document.getElementById("twoWins");
 var whoseTurnText = document.getElementById("whoseTurn");
 
-bottom.addEventListener("click", chosenSquare);
+bottom.addEventListener("click", choseSquare);
 
 var game = new Game();
 
-function chosenSquare() {
+function choseSquare() {
   for (var i = 0; i < boxes.length; i++) {
-    if (event.target.id === boxes[i].id) {
+    if (event.target.id === boxes[i].id && boxes[i].innerText === "") {
       game.pickASquare(event.target.id);
       displayIcon(boxes[i]);
+      game.changeTurns();
     }
   }
-
-  game.winningSolutions('boxOne', 'boxTwo', 'boxThree');
-  game.winningSolutions('boxFour', 'boxFive', 'boxSix');
-  game.winningSolutions('boxSeven', 'boxEight', 'boxNine');
-  game.winningSolutions('boxOne', 'boxFour', 'boxSeven');
-  game.winningSolutions('boxTwo', 'boxFive', 'boxEight');
-  game.winningSolutions('boxThree', 'boxSix', 'boxNine');
-  game.winningSolutions('boxOne', 'boxFive', 'boxNine');
-  game.winningSolutions('boxThree', 'boxFive', 'boxSeven')
-  game.draw()
-  game.changeTurns();
-  whoseTurn();
+  game.checkForWinner();
+  game.checkForDraw();
+  displayWhoseTurn();
   displayWins();
   setTimeout("clearBoxes()", 5000);
 }
@@ -46,12 +36,12 @@ function clearBoxes() {
     for (var i = 0; i < boxes.length; i++) {
       boxes[i].innerText = "";
     }
-    game.reset();
-    whoseTurn();
+    game.resetBoard();
+    displayWhoseTurn();
   }
 }
 
-function whoseTurn() {
+function displayWhoseTurn() {
   if (game.playerOnesTurn && !game.ended) {
     whoseTurnText.innerText = "Player 1's Turn";
   } else if (!game.playerOnesTurn && !game.ended) {
@@ -60,96 +50,15 @@ function whoseTurn() {
 }
 
 function displayWins() {
-  if (game.winner === 1 && game.trophyEarned === 0) {
-    oneWins.innerText += "🏆";
+  if (game.winner === 1) {
+    var playerOneWins = game.playerOne.wins.length;
+    oneWins.innerText = `Wins: ${playerOneWins}`;
     whoseTurnText.innerText = "Victory for Player One!";
-    game.trophyEarned++;
-  } else if (game.winner === 2 && game.trophyEarned === 0) {
-    twoWins.innerText += "🏆";
+  } else if (game.winner === 2) {
+    var playerTwoWins = game.playerOne.wins.length;
+    twoWins.innerText = `Wins: ${playerTwoWins}`;
     whoseTurnText.innerText = "Victory for Player Two!";
-    game.trophyEarned++;
-  } else if (game.ended && game.trophyEarned === 0) {
+  } else if (game.ended) {
     whoseTurnText.innerText = "Draw!";
   }
 }
-
-// function disableClick() {
-//   boxes.disabled = true;
-// }
-
-//chosenSquare other thoughts
-//>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<
-//only should happen if that chosen box is 0
-// for (var i = 0; i < boxes.length; i++) {
-//   if (boxes[i].id == event.target.id) {
-//     game.pickASquare('boxOne')
-//     displayIcon(boxOne)
-//     game.changeTurns()
-//   }
-// }
-//   var click = event.target.id
-//   console.log(click)
-// if ( game.gameBoardSquares[click]) {
-//   console.log('hi')
-//   console.log(game.gameBoardSquares[event.target.id])
-//   game.pickASquare('boxOne')
-//   displayIcon(boxOne)
-//   game.changeTurns()
-// }
-//   var thisBox = [boxOne, boxTwo, boxThree]
-//   for (var i = 0; i < thisBox.length; i++){
-//
-//     // debugger
-//     if (event.target.id === `${thisBox[i]}` && thisBox[i].innerText === '') {
-//       game.pickASquare(`${thisBox[i]}`);
-//       displayIcon(thisBox[i]);
-//       game.changeTurns();
-//   }
-// }
-
-// if (event.target.id === "boxOne" && boxOne.innerText === "") {
-//   game.pickASquare("boxOne");
-//   displayIcon(boxOne);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxTwo" && boxTwo.innerText === "") {
-//   game.pickASquare("boxTwo");
-//   displayIcon(boxTwo);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxThree" && boxThree.innerText === "") {
-//   game.pickASquare("boxThree");
-//   displayIcon(boxThree);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxFour" && boxFour.innerText === "") {
-//   game.pickASquare("boxFour");
-//   displayIcon(boxFour);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxFive" && boxFive.innerText === "") {
-//   game.pickASquare("boxFive");
-//   displayIcon(boxFive);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxSix" && boxSix.innerText === "") {
-//   game.pickASquare("boxSix");
-//   displayIcon(boxSix);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxSeven" && boxSeven.innerText === "") {
-//   game.pickASquare("boxSeven");
-//   displayIcon(boxSeven);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxEight" && boxEight.innerText === "") {
-//   game.pickASquare("boxEight");
-//   displayIcon(boxEight);
-//   game.changeTurns();
-//   whoseTurn();
-// } else if (event.target.id === "boxNine" && boxNine.innerText === "") {
-//   game.pickASquare("boxNine");
-//   displayIcon(boxNine);
-//   game.changeTurns();
-//   whoseTurn();
-// }

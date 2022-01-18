@@ -8,16 +8,6 @@ body {
   display: flex;
 }
 
-/* .top {
-  background-color: #FFF3B8;
-  height: 150px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 30px;
-  color: #E2CB5D;
-} */
-
 .right,
 .left {
   color: #E2CB5D;
@@ -52,7 +42,6 @@ body {
   align-content: center;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .box {
@@ -64,12 +53,9 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 80px;
-  /* transition: .2s; */
+  background-color: inherit;
 }
 
-/* .box:hover {
-  transform: scale(1,1);
-} */
 
 .box:nth-child(1) {
   border-width: 0px 3px 3px 0px
