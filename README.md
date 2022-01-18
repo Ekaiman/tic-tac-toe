@@ -23,4 +23,5 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 
 ## Future Additions
 - Allow users to pick their token from a drop down menu.
+- Add music to browser.
 
