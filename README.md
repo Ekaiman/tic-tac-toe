@@ -32,12 +32,7 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 ## Code Architecture
 - This project consists of 5 different files - index.html, css.styles, main.js, game.js, player.js.
 - game.js and player.js are both classes that hold the data models.
-- game.js holds all neccesary information for the games logic including :
-Game board data
-Win conditions
-If the game is still active
-Which players turn
-Who starts
+- game.js holds all neccesary information for the games logic including :Game board data, Win conditions, If the game is still active, Which players turn, Who starts
 - The game board data gameBoardSquares is an object. Each key in the project directly corresponds to a box in the HTML and has the same naming as its corresponding boxs' id. 
 - The game starts all of the properties start with a value of 0.
 - As the players pick a square, the number changes to a 1 or a 2 depending on whos placed in that sqaure.
