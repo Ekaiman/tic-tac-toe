@@ -14,6 +14,10 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 - Html
 - CSS
 
+## Local Set up Instructions
+- From the tic-tac-toe-SOLO repo click the code button and copy the SSH link. <img width="915" alt="Screen Shot 2022-01-20 at 10 29 35 AM" src="https://user-images.githubusercontent.com/93098905/150390803-c97cde45-4e6c-44aa-938d-7b16c434325d.png">
+
+
 ## Instructions For Use
 - On opening the browser, it is player ones turn.
 - Click on a square, or use tab and enter to place your token.
