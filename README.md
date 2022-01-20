@@ -36,8 +36,8 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 - The game board data gameBoardSquares is an object. Each key in the project directly corresponds to a box in the HTML and has the same naming as its corresponding boxs' id. 
 - The game starts all of the properties start with a value of 0.
 - As the players pick a square, the number changes to a 1 or a 2 depending on whos placed in that sqaure.
-- Win conditions is an array of arrays holding the box property names that make a win. This method checks to see if those three properties have the same number, if so, that is a win.
-- The win conditions array is iterated through in the checkForWin method.
+- Win conditions is an array of arrays holding the box property names that make a win. 
+- The win conditions array is iterated through in the checkForWin method. This method checks to see if those three properties have the same number, if so, that is a win.
 
 - player.js is a class that hold the players id and their token
 - a new instance of player is created in the game class 
