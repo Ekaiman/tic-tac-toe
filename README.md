@@ -16,7 +16,6 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 
 ## Local Set up Instructions
 - From the tic-tac-toe-SOLO repo click the code button and copy the SSH link. <img width="915" alt="Screen Shot 2022-01-20 at 10 29 35 AM" src="https://user-images.githubusercontent.com/93098905/150390803-c97cde45-4e6c-44aa-938d-7b16c434325d.png">
-- or use this - git@github.com:Ekaiman/tic-tac-toe-SOLO.git
 - Open terminal by pressing command + space bar, and search for terminal
 - Inside of you terminal type "git clone" and then paste the ssh link should look like "git clone git@github.com:Ekaiman/tic-tac-toe-SOLO.git"
 - In your terminal type "cd tic-tac-toe-SOLO"
@@ -34,8 +33,8 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 - This project consists of 5 different files - index.html, css.styles, main.js, game.js, player.js.
 - game.js and player.js are both classes that hold the data models.
 - game.js holds all neccesary information for the games logic including :
-        - Game board data
-        - Win conditions
+        1. Game board data
+        1. Win conditions
         - If the game is still active
         - Which players turn
         - Who starts
