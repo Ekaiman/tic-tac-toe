@@ -40,7 +40,8 @@ This project allows users to play tic tac toe with a friend sitting nearby. The 
 - The win conditions array is iterated through in the checkForWin method. This method checks to see if those three properties have the same number, if so, that is a win.
 
 - player.js is a class that hold the players id and their token
-- a new instance of player is created in the game class 
+- a new instance of player is created in the game class where and individual id and token are given to each player
+- main.js hold all event listeners, function required to mainpulate the DOM, a new instance of the game class, and the function that start the game
  
 ## Future Additions
 - Create an option to play against a computer.
